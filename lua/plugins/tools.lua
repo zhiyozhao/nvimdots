@@ -64,4 +64,15 @@ return {
         enabled = settings.enabled("tabout"),
         config = configs.tabout,
     },
+    {
+        "folke/flash.nvim",
+        enabled = settings.enabled("flash"),
+        config = configs.flash,
+    },
+    { "echasnovski/mini.ai", enabled = settings.enabled("mini_ai"), config = configs.mini_ai },
+    {
+        "echasnovski/mini.surround",
+        enabled = settings.enabled("mini_surround"),
+        config = configs.mini_surround,
+    },
 }

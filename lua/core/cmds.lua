@@ -22,6 +22,25 @@ local auto_input_select = {
     end,
 }
 
+M.load_vsc = function()
+    local default = vim.api.nvim_create_augroup("default", { clear = true })
+
+    if settings.auto_input_select.enabled then
+        autocmd(auto_input_select.set_default_events, {
+            group = default,
+            callback = function()
+                auto_input_select:set_default()
+            end,
+        })
+        autocmd(auto_input_select.set_prev_events, {
+            group = default,
+            callback = function()
+                auto_input_select:set_prev()
+            end,
+        })
+    end
+end
+
 M.load = function()
     local default = vim.api.nvim_create_augroup("default", { clear = true })
 

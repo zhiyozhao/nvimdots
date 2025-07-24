@@ -7,9 +7,5 @@ return {
         enabled = settings.enabled,
         build = ":TSUpdate",
         config = configs.treesitter,
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            "RRethy/nvim-treesitter-textsubjects",
-        },
     },
 }

@@ -183,11 +183,7 @@ settings_vsc = {
     plugins = {
         dir = "plugins",
         theme = { name = "none" },
-        lsp = {
-            enabled = false,
-            ensure_installed = {},
-            conform_fmt = {},
-        },
+        lsp = { enabled = false },
         cmp = { enabled = false },
         treesitter = {
             enabled = true,
@@ -202,7 +198,7 @@ settings_vsc = {
         },
         tools = {
             enabled = function(name)
-                local enabled_list = { "flash" }
+                local enabled_list = { "flash", "mini_ai" }
 
                 return vim.tbl_contains(enabled_list, name)
             end,

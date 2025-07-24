@@ -16,8 +16,6 @@ M.load_vsc = function()
         expandtab = true,
         shiftwidth = 0,
         smartindent = true,
-        swapfile = false,
-        undofile = true,
     }
 
     set_opts(opts)

@@ -5,6 +5,7 @@ local settings = require("core.settings")
 local map = vim.keymap.set
 
 M.load_vsc = function()
+    map("i", "<D-v>", "<C-r>*")
     map({ "n", "x" }, "gy", '"*y')
     map({ "n", "x" }, "gp", '"*p')
     map({ "n", "x" }, "gP", '"*P')
@@ -118,26 +119,6 @@ M.treesitter_inner = function()
                 node_incremental = "<cr>",
                 scope_incremental = "<tab>",
                 node_decremental = "<S-cr>",
-            },
-        },
-        textobjects = {
-            select = {
-                keymaps = {
-                    ["ic"] = "@class.inner",
-                    ["ac"] = "@class.outer",
-                    ["if"] = "@function.inner",
-                    ["af"] = "@function.outer",
-                    ["ip"] = "@parameter.inner",
-                    ["ap"] = "@parameter.outer",
-                },
-            },
-        },
-        textsubjects = {
-            prev_selection = ",",
-            keymaps = {
-                ["."] = "textsubjects-smart",
-                [";"] = "textsubjects-container-outer",
-                ["i;"] = "textsubjects-container-inner",
             },
         },
     }
@@ -592,6 +573,15 @@ M.bufjump_inner = function()
         forward = "<C-n>",
         backward = "<C-p>",
     }
+end
+
+M.flash = function()
+    local flash = require("flash")
+
+    map({ "n", "x", "o" }, "s", flash.jump)
+    map({ "n", "x", "o" }, "S", flash.treesitter)
+    map({ "n", "o", "x" }, "R", flash.treesitter_search)
+    map("o", "r", flash.remote)
 end
 
 return M

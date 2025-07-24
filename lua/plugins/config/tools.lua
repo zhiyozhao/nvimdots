@@ -78,4 +78,17 @@ M.tabout = function()
     require("tabout").setup()
 end
 
+M.flash = function()
+    require("flash").setup()
+    mappings.flash()
+end
+
+M.mini_ai = function()
+    require("mini.ai").setup()
+end
+
+M.mini_surround = function()
+    require("mini.surround").setup()
+end
+
 return M
