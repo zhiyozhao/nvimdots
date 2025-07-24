@@ -8,6 +8,22 @@ local set_opts = function(opts)
     end
 end
 
+M.load_vsc = function()
+    local opts = {
+        ignorecase = true,
+        smartcase = true,
+        tabstop = 4,
+        expandtab = true,
+        shiftwidth = 0,
+        smartindent = true,
+        swapfile = false,
+        undofile = true,
+    }
+
+    set_opts(opts)
+    vim.g.mapleader = settings.mapleader
+end
+
 M.load = function()
     local opts = {
         mouse = "a",

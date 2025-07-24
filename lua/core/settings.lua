@@ -54,7 +54,7 @@ local lang_settings = {
     end,
 }
 
-return {
+settings = {
     kind_icons = {
         Text = "󰉿",
         Method = "󰆧",
@@ -172,3 +172,46 @@ return {
         },
     },
 }
+
+settings_vsc = {
+    mapleader = " ",
+    auto_input_select = {
+        enabled = true,
+        select_command = "im-select",
+        default_input = "com.apple.keylayout.ABC",
+    },
+    plugins = {
+        dir = "plugins",
+        theme = { name = "none" },
+        lsp = {
+            enabled = false,
+            ensure_installed = {},
+            conform_fmt = {},
+        },
+        cmp = { enabled = false },
+        treesitter = {
+            enabled = true,
+            ensure_installed = lang_settings:treesitter_ensure_installed(),
+        },
+        components = {
+            enabled = function(name)
+                local enabled_list = {}
+
+                return vim.tbl_contains(enabled_list, name)
+            end,
+        },
+        tools = {
+            enabled = function(name)
+                local enabled_list = { "flash" }
+
+                return vim.tbl_contains(enabled_list, name)
+            end,
+        },
+    },
+}
+
+if vim.g.vscode then
+    return settings_vsc
+else
+    return settings
+end
