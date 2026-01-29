@@ -1,7 +1,7 @@
 settings = {
     mapleader = " ",
     auto_input_select = {
-        enabled = true,
+        enabled = jit.os == "OSX",
         select_command = "im-select",
         default_input = "com.apple.keylayout.ABC",
     },
